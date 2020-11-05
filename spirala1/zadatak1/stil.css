@@ -1,0 +1,45 @@
+#prva{
+    margin: auto;
+    width: 45%;
+    height: 20px;
+    
+}
+#prva tr td{
+    font-family: 'Courier New', Courier, monospace;
+    background: white;
+    border: none;
+    padding-right: 50px;
+    
+}
+table tr td.dan {
+   border: 0;
+   background-color: white;
+   text-align: right;
+   padding-right: 5px;
+   font-family: 'Courier New', Courier, monospace;
+}
+ tr td{
+    border: 1px solid black;
+    background-color: rgb(233, 224, 250);
+    text-align: center;
+}
+#druga {
+    border-collapse: collapse;
+    margin: auto;
+    width: 65%;
+    height: 450px;  
+}
+td{
+    width: 20px;
+}
+#predmet{
+    background-color: rgb(213, 226, 247);
+}
+#prvi{
+font-weight: bold ; 
+}
+
+td:nth-of-type(even), td.wt{
+    border-right: 2px dashed;
+}
+
