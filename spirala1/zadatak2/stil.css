@@ -26,3 +26,7 @@ legend, h3, h5{
     color: rgb(64, 88, 138);
     text-align: center;
 }
+.centar{
+    display: block;
+    margin: 1.0em auto;
+}
