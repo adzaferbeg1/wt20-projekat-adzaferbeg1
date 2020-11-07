@@ -1,0 +1,16 @@
+table{
+ border-collapse: collapse;
+ margin: auto;
+ width: 30%;
+ height: 330px;
+ margin-top: 30px;
+}
+tr td{
+    border: 1px solid black;
+    text-align: center;
+    width: 150px;
+    font-size: 15pt;
+}
+tr:hover{
+    border: 2px solid black;
+}
