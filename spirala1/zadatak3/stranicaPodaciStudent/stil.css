@@ -1,16 +1,18 @@
-table{  
-    
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    height: 250px;
-    margin-top: 40px;
+table{
+ border-collapse: collapse;
+ margin: auto;
+ width: 30%;
+ height: 330px;
+ margin-top: 30px;
 }
-input, select{
-    width: 130pt;
-}
-td{
+tr td{
+    border: 1px solid black;
     text-align: center;
+    width: 150px;
+    font-size: 15pt;
+}
+tr:hover{
+    border: 2px solid black;
 }
 /* meni */
 a:hover{
@@ -30,4 +32,3 @@ div{
 body{
     margin: 0;
 }
-
