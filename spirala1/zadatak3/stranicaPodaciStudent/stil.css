@@ -14,21 +14,3 @@ tr td{
 tr:hover{
     border: 2px solid black;
 }
-/* meni */
-a:hover{
-    font-weight: bold;
-}
-div a{
-    margin-right: 10px;
-    margin-left: 10px;
-    text-decoration: none;
-}
-div{
-    background: rgb(233, 228, 222);
-    margin: 0;
-    height: 25px;
-    padding-top: 5px;
-}
-body{
-    margin: 0;
-}
