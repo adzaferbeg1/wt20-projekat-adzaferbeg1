@@ -8,6 +8,7 @@ th, table tr td.dan{
 th{
     margin: 0;
     padding: 0;
+    padding-top: 10px;
     height: 20px;
     font-size: 12pt;  
 }
@@ -51,4 +52,23 @@ td.cetvrti{
 tr.jedan td:nth-of-type(5),tr.jedan td:nth-of-type(7),
 tr.dva td:nth-of-type(13), tr.tri td:nth-of-type(11){
 border-left: 2px solid rgb(129, 125, 125);
+}
+
+/* meni */
+a:hover{
+    font-weight: bold;
+}
+div a{
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+div{
+    background: rgb(233, 228, 222);
+    margin: 0;
+    height: 25px;
+    padding-top: 5px;
+}
+body{
+    margin: 0;
 }
