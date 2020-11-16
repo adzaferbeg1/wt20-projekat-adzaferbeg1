@@ -1,4 +1,4 @@
-th, table tr td.dan, #predmet{
+th, table tr td.dan, .predmet{
     font-family: 'Courier New', Courier, monospace;
 }
 th, table tr td.dan{
@@ -36,7 +36,7 @@ tr td{
 td{
 	width: 20px;
 }
-#predmet{
+.predmet{
     background-color: rgb(213, 226, 247);
     font-size: 14pt;
 }
