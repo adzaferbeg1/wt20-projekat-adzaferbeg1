@@ -1,4 +1,4 @@
-th, table tr td.dan, #predmet{
+th, table tr td.dan, .predmet{
     font-family: 'Courier New', Courier, monospace;
 }
 th, table tr td.dan{
@@ -8,6 +8,7 @@ th, table tr td.dan{
 th{
     margin: 0;
     padding: 0;
+    padding-top: 10px;
     height: 20px;
     font-size: 12pt;  
 }
@@ -35,7 +36,7 @@ tr td{
 td{
 	width: 20px;
 }
-#predmet{
+.predmet{
     background-color: rgb(213, 226, 247);
     font-size: 14pt;
 }
@@ -52,3 +53,4 @@ tr.jedan td:nth-of-type(5),tr.jedan td:nth-of-type(7),
 tr.dva td:nth-of-type(13), tr.tri td:nth-of-type(11){
 border-left: 2px solid rgb(129, 125, 125);
 }
+
