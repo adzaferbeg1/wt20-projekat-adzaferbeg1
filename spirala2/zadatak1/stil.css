@@ -1,0 +1,60 @@
+div{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+th, table tr td.dan, .predmet{
+    font-family: 'Courier New', Courier, monospace;
+}
+th, table tr td.dan{
+    background:white;
+    border: none;
+}
+th{
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    height: 20px;
+    font-size: 12pt;  
+}
+th:nth-of-type(1), table tr td.dan{
+    text-align: right;
+} 
+th:nth-of-type(1){
+    padding-right: 25px;
+}
+table tr td.dan {
+	padding-right: 5px;
+    font-size: 15pt;
+}
+tr td{
+	border: 1px solid black;
+	background-color: rgb(233, 224, 250);
+	text-align: center;
+}
+table {
+	border-collapse: collapse;
+	margin: auto;
+	width: 65%;
+	height: 450px;
+}
+td{
+	width: 20px;
+}
+.predmet{
+    background-color: rgb(213, 226, 247);
+    font-size: 14pt;
+}
+#prvi{
+	font-weight: bold ;
+}
+td:nth-of-type(even), td.wt{
+	border-right: 2px dashed;
+}
+td.cetvrti{
+    border-left: 2px dashed;
+}
+tr.jedan td:nth-of-type(5),tr.jedan td:nth-of-type(7),
+tr.dva td:nth-of-type(13), tr.tri td:nth-of-type(11){
+border-left: 2px solid rgb(129, 125, 125);
+}
+
