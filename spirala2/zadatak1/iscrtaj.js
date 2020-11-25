@@ -1,3 +1,5 @@
+/* prva funkcija */
+
 function iscrtajRaspored(div, dani, satPocetak, satKraj){
 
     if(!Number.isInteger(satPocetak) || !Number.isInteger(satKraj)){
@@ -50,6 +52,9 @@ function iscrtajRaspored(div, dani, satPocetak, satKraj){
 }
 
 }
+
+/* druga funkcija */
+
 
 function dodajAktivnost(raspored, naziv, tip, vrijemePocetak, vrijemeKraj, dan){
 
