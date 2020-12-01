@@ -92,18 +92,18 @@ function dodajAktivnost(raspored, naziv, tip, vrijemePocetak, vrijemeKraj, dan) 
 					var red = raspored.getElementsByTagName("tr")[mapa.get(dan)];
 					var pocetakRasporeda1;
                     var regx = /:00/g;
-                    var pomocni = 0;
+                    var pomocni2 = 0;
                     
                     
                     if(raspored.getElementsByTagName("th")[0].textContent === "")
                     {
                         pocetakRasporeda1 = raspored.getElementsByTagName("th")[1].textContent;
-                        pomocni = 1;
+                        pomocni2 = 1;
                     }else{
                         pocetakRasporeda1 = raspored.getElementsByTagName("th")[0].textContent;
                     }
 					
-                    var pocetakRasporeda = parseInt(pocetakRasporeda1.replaceAll(regx, "")) - pomocni;
+                    var pocetakRasporeda = parseInt(pocetakRasporeda1.replaceAll(regx, "")) - pomocni2;
                     
 
                 //trazenje kraja rasporeda
