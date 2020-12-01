@@ -16,6 +16,10 @@ dodajAktivnost(okvir,"RMA","vježbe",12.5,14,"Utorak");
 dodajAktivnost(okvir,"DM","tutorijal",14,16,"Utorak");
 dodajAktivnost(okvir,"DM","predavanje",16,19,"Utorak");
 dodajAktivnost(okvir,"OI","predavanje",12,15,"Srijeda");
-dodajAktivnost(okvir2,"OI","predavanje",16.5,18,"Srijeda");
+dodajAktivnost(okvir2,"RMA","predavanje",17,18,"Utorak");
+dodajAktivnost(okvir2,"RMA","vježbe",17.5,18,"Srijeda");
+dodajAktivnost(okvir2,"DM","vježbe",19,20,"Ponedjeljak");
+dodajAktivnost(okvir2,"ASP","predavanje",16,17.5,"Ponedjeljak");
+
 }
 

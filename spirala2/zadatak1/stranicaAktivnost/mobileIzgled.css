@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+    fieldset.prethodni{
+        display: none;
+    }
+    table tr td{
+        display: block;  
+    }
+     table{
+        margin-top: 30px;
+    }
+}

@@ -62,17 +62,22 @@ function dodajAktivnost(raspored, naziv, tip, vrijemePocetak, vrijemeKraj, dan) 
 	} else {
 		if (vrijemeKraj < vrijemePocetak) {
 			alert("Greška - u rasporedu ne postoji dan ili vrijeme u kojem pokušavate dodati termin");
-
+            return false;
         }else {
 
 			if (!Number.isInteger(vrijemePocetak)) {
-				if (vrijemePocetak != Number.parseInt(vrijemePocetak) + 0.5) alert("Greška - u rasporedu ne postoji dan ili vrijeme u kojem pokušavate dodati termin");
-
+				if (vrijemePocetak != Number.parseInt(vrijemePocetak) + 0.5) {
+                    alert("Greška - u rasporedu ne postoji dan ili vrijeme u kojem pokušavate dodati termin");
+                    return false;
+            }
 			}
 			if (!Number.isInteger(vrijemeKraj)) {
-				if (vrijemeKraj != Number.parseInt(vrijemeKraj) + 0.5) alert("Greška - u rasporedu ne postoji dan ili vrijeme u kojem pokušavate dodati termin");
+				if (vrijemeKraj != Number.parseInt(vrijemeKraj) + 0.5){
+                    alert("Greška - u rasporedu ne postoji dan ili vrijeme u kojem pokušavate dodati termin");
+                    return false;
+                } 
 
-			} else {
+			} 
 				var mapa = new Map();
 				mapa.set("Ponedjeljak", 1);
 				mapa.set("Utorak", 2);
@@ -153,7 +158,7 @@ function dodajAktivnost(raspored, naziv, tip, vrijemePocetak, vrijemeKraj, dan) 
 
 				}
 
-			}
+			
 		}
 	}
 }
