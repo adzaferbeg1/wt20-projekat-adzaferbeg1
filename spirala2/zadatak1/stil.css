@@ -52,10 +52,13 @@ td{
 td:nth-of-type(even), td.wt{
 	border-right: 2px dashed;
 }
+/*
 td.cetvrti{
     border-left: 2px dashed;
 }
+
 tr.jedan td:nth-of-type(5),tr.jedan td:nth-of-type(7),
 tr.dva td:nth-of-type(13), tr.tri td:nth-of-type(11){
 border-left: 2px solid rgb(129, 125, 125);
 }
+*/
