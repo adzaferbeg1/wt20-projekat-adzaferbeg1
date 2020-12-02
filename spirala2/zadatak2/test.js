@@ -257,7 +257,7 @@ describe('Raspored', function() {
       it('Alert aktivnosti kraj nije cijeli broj niti x.5 (2)', function() {
         var div2 = document.createElement("div");
         var window = Raspored.testirajAkivnost(div2,"A","B",6,11.8);
-        assert.equal(window, -4, "Očekujemo grešku");
+        assert.equal(window, -4, "Očekujemo alert i grešku");
        
       });
   
