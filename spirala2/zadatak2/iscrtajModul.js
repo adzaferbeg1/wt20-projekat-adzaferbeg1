@@ -165,9 +165,40 @@ var dodajAktivnost = function(raspored, naziv, tip, vrijemePocetak, vrijemeKraj,
 	}
 }
 
+var testirajAktivnost = function testirajAkivnost(raspored, naziv, tip, vrijemePocetak, vrijemeKraj, dan){
+    
+	if (raspored === null) {
+		
+		return -1;
+	} else {
+		if (vrijemeKraj < vrijemePocetak) {
+            return -2;
+        }else {
+
+			if (!Number.isInteger(vrijemePocetak)) {
+				if (vrijemePocetak != Number.parseInt(vrijemePocetak) + 0.5) {
+                    return -3;
+            }
+			}
+			if (!Number.isInteger(vrijemeKraj)) {
+				if (vrijemeKraj != Number.parseInt(vrijemeKraj) + 0.5){
+                    
+                    return -4;
+                } 
+
+            }
+            
+        }
+        return 0;
+
+    }
+}
+
+
 return{
     iscrtajRaspored:iscrtajRaspored, 
-    dodajAktivnost:dodajAktivnost
+    dodajAktivnost:dodajAktivnost,
+    testirajAkivnost:testirajAktivnost
 }
 
 }());
