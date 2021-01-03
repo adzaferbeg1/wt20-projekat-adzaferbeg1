@@ -1,0 +1,2 @@
+OOI,tutorijal,14,19,Ponedjeljak
+RMA,predavanje,14,17,Utorak

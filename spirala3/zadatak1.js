@@ -98,22 +98,11 @@ app.post('/predmet', function(req, res) {
 
 app.post('/aktivnost', function(req, res) {
 
-	let predmeti;
-	fs.readFile("public/predmeti.txt", "utf-8", function(err, data) {
-		if (err) throw err;
-		data = data.split("\n");
-		predmeti = data;
-	});
-
 	let zahtjev = req.body;
 
 	fs.readFile("public/aktivnosti.txt", "utf-8", function(err, data) {
-		if (err) throw err;
-		if (!predmeti.includes(zahtjev["naziv"])) {
-			res.json({
-				message: "Aktivnost nije validna!"
-			});
-		} else {
+        if (err) throw err;
+        
 			if (zahtjev["pocetak"] < 8 || zahtjev["kraj"] > 20) {
 				res.json({
 					message: "Aktivnost nije validna!"
@@ -123,17 +112,42 @@ app.post('/aktivnost', function(req, res) {
 					message: "Aktivnost nije validna!"
 				});
 			} else {
-				let noviRed = zahtjev["naziv"] + "," + zahtjev["tip"] + "," + zahtjev["pocetak"] + "," + zahtjev["kraj"] + "," + zahtjev["dan"] + "\n";
-				fs.appendFile("public/aktivnosti.txt", noviRed, function(err) {
+				if(!Number.isInteger(Number(zahtjev["pocetak"])) || !Number.isInteger(Number(zahtjev["kraj"]))){
+					if(!Number.isInteger(2*Number(zahtjev["pocetak"])) || !Number.isInteger(2*Number(zahtjev['kraj']))) 
+					res.json({message: "Aktivnost nije validna!"});
+                       
+                    }else{
+						podaci = data.split("\n");
+						let pogresnoVrijeme = false;
+						for(let i =0; i<podaci.length; i++){
+							let array = podaci[i].split(",");
+							if(array[4] === zahtjev.dan){
+								if(array[2] <= zahtjev.pocetak && array[3] > zahtjev.pocetak || array[2]<zahtjev.kraj&&array[3]>=zahtjev.kraj
+									|| zahtjev.pocetak<=array[2]&&zahtjev.kraj>=array[3]){
+									pogresnoVrijeme = true;
+									break;
+								}
+							}
+						}
+                      if(pogresnoVrijeme){
+						res.json({
+                            message: "Aktivnost nije validna!"
+                        });
+					  }else{
+						let noviRed = zahtjev["naziv"] + "," + zahtjev["tip"] + "," + zahtjev["pocetak"] + "," + zahtjev["kraj"] + "," + zahtjev["dan"] + "\n";
+				        fs.appendFile("public/aktivnosti.txt", noviRed, function(err) {
 					if (err) {
-						throw err;
+					    throw err;
 					} else
 						res.json({
 							message: "Uspješno dodana aktivnost!"
 						});
 				});
+					  }
+                    }
+                
 			}
-		}
+        
 	});
 });
 
@@ -218,4 +232,9 @@ app.delete("/all", function(req, res) {
 	
 });
 
+function sumbit(){
+
+}
+
 app.listen(3000);
+module.exports=app;
