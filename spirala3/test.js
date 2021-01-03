@@ -11,9 +11,8 @@ let testovi = fs.readFileSync('testniPodaci.txt','utf8');
 let test = testovi.split("\n");
 
 test.forEach((podatak) => {
-    let brojacTestova = 0;
     let jsonObjekat = {};
-    let vrijednosti = podatak.replace(/\\/gi,"").split(",");
+    let vrijednosti = podatak.replace(/\\/gi,"").replace(/\\r/gi,"").split(",");
     jsonObjekat.operacija = vrijednosti[0];
     jsonObjekat.ruta = vrijednosti[1];
     let ulaz ="";
