@@ -1,5 +1,7 @@
 GET,/predmeti,null,[[{\"naziv\":\"OOI\"},{\"naziv\":\"ASP\"},{\"naziv\":\"RMA\"}]]
 GET,/aktivnosti,null,[[{\"naziv\":\"OOI\",\"tip\":\"tutorijal\",\"pocetak\":\"14\",\"kraj\":\"19\",\"dan\":\"Ponedjeljak\"},{\"naziv\":\"RMA\",\"tip\":\"predavanje\",\"pocetak\":\"14\",\"kraj\":\"17\",\"dan\":\"Utorak\"}]]
+GET,/predmet/ASP/aktivnost,null,[[]]
+GET,/predmet/OOI/aktivnost,null,[[{\"naziv\":\"OOI\",\"tip\":\"tutorijal\",\"pocetak\":\"14\",\"kraj\":\"19\",\"dan\":\"Ponedjeljak\"}]]
 POST,/predmet,{\"naziv\":\"ASP\"},{\"message\":\"Naziv predmeta postoji!\"}
 POST,/predmet,{\"naziv\":\"RMA\"},{\"message\":\"Naziv predmeta postoji!\"}
 POST,/predmet,{\"naziv\":\"DM\"},{\"message\":\"Uspješno dodan predmet!\"}

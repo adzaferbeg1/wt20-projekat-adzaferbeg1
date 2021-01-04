@@ -74,6 +74,43 @@ app.get('/aktivnosti', function(req, res) {
 
 });
 
+app.get('/predmet/:naziv/aktivnost',function(req,res){
+	let trazeniPredmet = req.params.naziv;
+	fs.readFile("public/aktivnosti.txt", "utf-8", function(err, data) {
+
+		if (err) {
+			throw err;
+		}
+		let vrati = "[[";
+		data = data.split("\n");
+		data.pop();
+		for (let i = 0; i < data.length; i++) {
+			let podaci = data[i];
+			let array = podaci.split(",");
+			if (vrati != "[[") {
+				vrati += ",";
+			}
+			if(trazeniPredmet === array[0]){
+				
+			vrati += JSON.stringify({
+				naziv: array[0],
+				tip: array[1],
+				pocetak: array[2],
+				kraj: array[3],
+				dan: array[4]
+			});
+			}
+		}
+		vrati += "]]";
+		if(vrati.charAt(vrati.length-3) === ','){
+			vrati = vrati.substring(0, vrati.length-3) + '' + vrati.substring(vrati.length-3 + 1);
+		}
+		console.log(vrati);
+		res.setHeader("Content-Type", "application/json");
+		res.end(vrati);
+	});
+});
+
 app.post('/predmet', function(req, res) {
 	let zahtjev = req.body;
 	fs.readFile("public/predmeti.txt", "utf-8", function(err, data) {
