@@ -81,13 +81,13 @@ app.get('/predmet/:naziv/aktivnost',function(req,res){
 		if (err) {
 			throw err;
 		}
-		let vrati = "[[";
+		let vrati = "[";
 		data = data.split("\n");
 		data.pop();
 		for (let i = 0; i < data.length; i++) {
 			let podaci = data[i];
 			let array = podaci.split(",");
-			if (vrati != "[[") {
+			if (vrati != "[") {
 				vrati += ",";
 			}
 			if(trazeniPredmet === array[0]){
@@ -101,9 +101,9 @@ app.get('/predmet/:naziv/aktivnost',function(req,res){
 			});
 			}
 		}
-		vrati += "]]";
-		if(vrati.charAt(vrati.length-3) === ','){
-			vrati = vrati.substring(0, vrati.length-3) + '' + vrati.substring(vrati.length-3 + 1);
+		vrati += "]";
+		if(vrati.charAt(vrati.length-2) === ','){
+			vrati = vrati.substring(0, vrati.length-2) + '' + vrati.substring(vrati.length-2 + 1);
 		}
 		console.log(vrati);
 		res.setHeader("Content-Type", "application/json");
