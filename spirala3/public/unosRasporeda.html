@@ -6,23 +6,24 @@
     <title>Unos rasporeda</title>
     <link rel="stylesheet" href="unosRasporeda.css">
 </head>
-<body>
-    <form onclick="return sumbit()">
-        <input type="text" name="naziv predmeta" value="naziv predmeta">
-        <select name="tip" >
+<body onload="ucitavanje()">
+    <form>
+        <label for="naziv predmeta">Predmet:</label>
+        <input type="text" name="naziv predmeta" class="predmet" id="nazivPredmeta" required>
+        <select name="tip" id="tip">
             <option >predavanje</option>
             <option >lab. vježba</option>
             <option >tutorijal</option>
         </select>
         <br>
         <label for="pocetak">Početak:</label>
-        <input type="number" name="pocetak" class="broj"> 
+        <input type="number" name="pocetak" class="broj" id="pocetak" step="any" required> 
         <br>
         <label for="kraj">Kraj:</label>
-        <input type="number" name="kraj" class="broj">
+        <input type="number" name="kraj" class="broj" id="kraj" step="any" required>
         <br>
         <label for="dan">Dan:</label>
-        <select name="dan">
+        <select name="dan" id="dani">
             <option>Ponedjeljak</option>
             <option>Utorak</option>
             <option>Srijeda</option>
@@ -30,7 +31,8 @@
             <option>Petak</option>
         </select>
         <br>
-        <input type="submit" value="Unesi">
+        <input type="submit" value="Unesi"  onclick="slanje()">
     </form>
+    <script src="ajax.js"></script>
 </body>
 </html>
