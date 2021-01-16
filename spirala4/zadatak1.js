@@ -300,6 +300,7 @@ app.delete('/v2/student/:id',function(req,res){
 
 //AKTIVNOST
 app.post('/v2/aktivnost',function(req,res){
+	let operacija = 'post';
 	let akt = {
 		naziv:req.body["naziv"],
 		pocetak:req.body["pocetak"],
@@ -309,11 +310,7 @@ app.post('/v2/aktivnost',function(req,res){
 		DanId:req.body["DanId"],
 		TipId:req.body["TipId"],
 	}
-	db.aktivnost.create(akt).then((s)=>{
-		 res.json(s);
-	}).catch(function(err){
-		res.json({message:err});
-	});
+	validirajAktivnost(akt,req,res,operacija);
 });
 
 app.get('/v2/aktivnost',function(req,res){
@@ -338,6 +335,7 @@ app.get('/v2/aktivnost/:id',function(req,res){
 });
 
 app.put('/v2/aktivnost/:id',function(req,res){
+	let operacija = 'put';
 	let akt = {
 		naziv:req.body["naziv"],
 		pocetak:req.body["pocetak"],
@@ -347,13 +345,8 @@ app.put('/v2/aktivnost/:id',function(req,res){
 		DanId:req.body["Danid"],
 		TipId:req.body["TipId"],
 	}
-	db.aktivnost.update(akt,{
-		where:{id:req.params.id}
-	}).then(()=>{
-		res.json({message:'Aktivnost uspješno izmijenjena'});
-	}).catch(function(err){
-		res.json({message:err});
-	});
+	
+	validirajAktivnost(akt,req,res,operacija);
 });
 
 app.delete('/v2/aktivnost/:id',function(req,res){
@@ -679,6 +672,64 @@ app.delete("/v1/all", function(req, res) {
 	
 });
 
+
+
+
+
+
+//VALIDACIJA AKTIVNOSTI
+  function validirajAktivnost(akt,req,res,operacija){
+    if (akt.pocetak < 8 || akt.kraj > 20) {
+        res.json({message:"Uneseni parametrni nisu validni"});
+    } else if (akt.pocetak > akt.kraj) {
+		res.json({message:"Uneseni parametrni nisu validni"});
+    } else {
+		let ok = true;
+        if(!Number.isInteger(Number(akt.pocetak)) || !Number.isInteger(Number(akt.kraj))){
+            if(!Number.isInteger(2*Number(akt.pocetak)) || !Number.isInteger(2*Number(akt.kraj))){
+			ok = false;
+			res.json({message:"Uneseni parametrni nisu validni"});
+			}
+			}
+			if(ok){ /*
+				db.aktivnost.findAll().then(s =>{
+					let sveAkt = s;
+					console.log("AKTIVNOSTI SUUUU " + sveAkt);
+                //let pogresnoVrijeme = false;
+                for(let i =0; i<sveAkt.length; i++){
+                    if(sveAkt[i].dan === akt.dan){
+                        if(sveAkt[i].pocetak <= akt.pocetak && sveAkt[i].kraj > akt.pocetak || sveAkt[i].pocetak<akt.kraj&&sveAkt[i].kraj>=akt.kraj
+                            || akt.pocetak<=sveAkt[i].pocetak&&akt.kraj>=sveAkt[i].kraj){
+								res.json({message:'Parametri koje ste unijeli nisu validni'});
+                            break;
+                        }else{
+							console.log(akt); */
+							if(operacija == 'post'){
+							db.aktivnost.create(akt).then((s)=>{
+								res.json(s);
+						   }).catch(function(err){
+							   res.json({message:err});
+						   });
+						 }else if(operacija == 'put'){
+							 
+							db.aktivnost.update(akt,{
+								where:{id:req.params.id}
+							}).then(()=>{
+								res.json({message:'Aktivnost uspješno izmijenjena'});
+							}).catch(function(err){
+								res.json({message:err});
+							});
+						 } /*
+						}
+                    }
+                    
+                }
+				}).catch((err) => {
+					res.json({message:err});
+				}); */
+			}
+    }
+}
 
 
 app.listen(3000);
