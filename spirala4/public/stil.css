@@ -1,0 +1,50 @@
+body{
+    height: 900px ;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(148, 178, 206) 86%);
+}
+fieldset{
+    border-radius: 25px;
+    height: 200px;
+    width: 200px;
+    border-color: rgb(87, 116, 179);
+}
+legend{
+    margin: 0 auto;
+    font-weight: bold;
+}
+table{
+    margin: auto;
+    margin-top: 200px;
+}
+.srednji fieldset{
+    height: 270px;
+    width: 220px;
+    margin-bottom: 68px;
+}
+legend, h3, h5{
+    color: rgb(64, 88, 138);
+    text-align: center;
+}
+.centar{
+    display: block;
+    margin: 1.0em auto;
+}
+/* meni */
+a:hover{
+    font-weight: bold;
+}
+div a{
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+div{
+    background: rgb(233, 228, 222);
+    margin: 0;
+    height: 25px;
+    padding-top: 5px;
+}
+body{
+    margin: 0;
+}
