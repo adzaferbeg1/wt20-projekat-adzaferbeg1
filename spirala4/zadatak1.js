@@ -6,6 +6,7 @@ const {
 } = require('repl');
 const app = express();
 const db = require('./baza.js');
+//const { json } = require('sequelize/types');
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -691,45 +692,49 @@ app.delete("/v1/all", function(req, res) {
 			res.json({message:"Uneseni parametrni nisu validni"});
 			}
 			}
-			if(ok){ /*
+			if(ok){ 
+					
+				let podaci = [];
 				db.aktivnost.findAll().then(s =>{
-					let sveAkt = s;
-					console.log("AKTIVNOSTI SUUUU " + sveAkt);
-                //let pogresnoVrijeme = false;
-                for(let i =0; i<sveAkt.length; i++){
-                    if(sveAkt[i].dan === akt.dan){
-                        if(sveAkt[i].pocetak <= akt.pocetak && sveAkt[i].kraj > akt.pocetak || sveAkt[i].pocetak<akt.kraj&&sveAkt[i].kraj>=akt.kraj
-                            || akt.pocetak<=sveAkt[i].pocetak&&akt.kraj>=sveAkt[i].kraj){
-								res.json({message:'Parametri koje ste unijeli nisu validni'});
-                            break;
-                        }else{
-							console.log(akt); */
-							if(operacija == 'post'){
-							db.aktivnost.create(akt).then((s)=>{
-								res.json(s);
-						   }).catch(function(err){
-							   res.json({message:err});
-						   });
-						 }else if(operacija == 'put'){
-							 
-							db.aktivnost.update(akt,{
-								where:{id:req.params.id}
-							}).then(()=>{
-								res.json({message:'Aktivnost uspješno izmijenjena'});
-							}).catch(function(err){
-								res.json({message:err});
-							});
-						 } /*
+				 podaci = s;
+				 let pogresnoVrijeme = false;
+				 for(let i =0; i<podaci.length; i++){
+					if(podaci[i].dan === akt.dan){
+						if(podaci[i].pocetak <= akt.pocetak && podaci[i].kraj > akt.pocetak || podaci[i].pocetak<akt.kraj&&podaci[i].kraj>=akt.kraj
+							|| akt.pocetak<=podaci[i].pocetak&&akt.kraj>=podaci[i].kraj){
+							pogresnoVrijeme = true;
+							break;
 						}
-                    }
-                    
-                }
-				}).catch((err) => {
-					res.json({message:err});
-				}); */
-			}
-    }
+					}
+				}
+				if(!pogresnoVrijeme){
+					if(operacija == 'post'){
+							
+						db.aktivnost.create(akt).then((s)=>{
+							res.json(s);	
+					   }).catch(function(err){
+						   res.json({message:err});
+					   });
+					 }else if(operacija == 'put'){
+						 
+						db.aktivnost.update(akt,{
+							where:{id:req.params.id}
+						}).then(()=>{
+							res.json({message:'Aktivnost uspješno izmijenjena'});
+						}).catch(function(err){
+							res.json({message:err});
+						});
+					 } 
+				}else{
+					res.json({message:"Termini se poklapaju s već postojećom aktivnošću."});
+				}
+				}).catch((err)=>res.json({message:err}));	
+		}
+	}
 }
+		
+	
+
 
 
 app.listen(3000);
