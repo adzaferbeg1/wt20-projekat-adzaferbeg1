@@ -11,7 +11,7 @@ const db = require('./baza.js');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-db.sequelize.sync({force:true}).then(() =>{
+db.sequelize.sync().then(() =>{
 	console.log('baza baza');
 }).catch((err)=>{
 	console.log(err);
@@ -75,6 +75,7 @@ app.delete('/v2/dan/:id',function(req,res){
 
 //PREDMET
 app.post('/v2/predmet',function(req,res){
+	console.log("BODYYYYYY "+req.body);
 	db.predmet.findOrCreate({
 		where:{naziv:req.body["naziv"]}
 	}).then((pr)=>{
